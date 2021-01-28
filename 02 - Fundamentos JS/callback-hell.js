@@ -53,10 +53,13 @@ console.log(getEmpleado(1, ( err, empleado) => {
         console.log('ERROR');
         return console.log(err);
     }
-    console.log('Empleado existe');
-    console.log(empleado);
+
+    getSalario(1, (err, salario) => {
+        if(err){
+            return console.log(err);
+        }
+        console.log('El empleado:', empleado, 'tiene un salario de:', salario);
+    });
+
 }));
 
-getSalario(1, (err, salario) => {
-    console.log(salario);
-});
