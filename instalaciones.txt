@@ -1,0 +1,13 @@
+Node.js
+
+-----Instalaciones necesarias-----
+google chrome
+visual stduio code
+postman
+mongo compass
+git
+github
+node
+https://gist.github.com/Klerith/177c153db77e566cb763f79e65d248bf
+
+nodemon
