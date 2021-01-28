@@ -30,20 +30,46 @@ const getEmpleado = (id) => {
 
     return new Promise( (res, rej) => {
 
-        const empleado = empleados.find(e => e.id === id)
+        const empleado = empleados.find(e => e.id === id);
 
-        if(empleado) {
-            res(empleado.nombre);
-        }else{
-            rej(`No existe empleado con id ${id}`);
-        }
+        (empleado)
+            ? res(empleado.nombre)
+            : rej(`No existe empleado con id ${id}`);
 
     });
     
 }
 
-const id = 4;
+const getSalario = (id) => {
+
+    return new Promise((res, rej) => {
+
+        const salario = salarios.find(s => s.id === id);
+
+        (salario)
+            ? res(salario.salario)
+            : rej(`No existe un salario con el id ${id}`);
+
+    });
+
+} 
+
+const id = 3;
+
+// getEmpleado(id)
+//     .then(empleado => console.log(empleado))
+//     .catch(err => console.log(err));
+
+// getSalario(id)
+//     .then(salario => console.log(salario))
+//     .catch(err => console.log(err));
 
 getEmpleado(id)
-    .then(empleado => console.log(empleado))
-    .catch(err => console.log(err));
+    .then(empleado => {
+        getSalario(id)
+            .then(salario => {
+                console.log('El empleado:', empleado, 'tiene un salario de:', salario);
+            })
+            .catch( err => console.log(err));
+    })
+    .catch( err => console.log(err));
