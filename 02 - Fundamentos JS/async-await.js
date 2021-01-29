@@ -71,7 +71,7 @@ const getInfousUario = async(id) => {
 
 }
 
-const id = 1;
+const id = 3;
 
 getInfousUario(id)
     .then( msg => console.log(msg))
