@@ -1,17 +1,16 @@
 const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer');
 const Tareas = require('./models/tareas');
-require('colors');
 
 const main = async() => {
     
-    console.log('Hola Mundo');
     let opt = '';
     const tareas = new Tareas();
 
     do{
         
+        //Imprimir el menú
         opt = await inquirerMenu();
-        
+
         switch(opt){
             case '1':
                     // crear opcion
@@ -20,7 +19,7 @@ const main = async() => {
             break;
 
             case '2':
-                 console.log(tareas._listado);
+                 console.log(tareas.listadoArr);
             break;
         }  
 
@@ -29,8 +28,6 @@ const main = async() => {
 
     }while(opt !== '0');
     
-
-    //pausa();
 }
 
 main();
