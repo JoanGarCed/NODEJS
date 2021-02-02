@@ -23,15 +23,74 @@ class Tareas {
 
     }
 
-    constructor(){
+    constructor() {
         this._listado = {};
     }
 
-    crearTarea(desc = ''){
+    borrarTarea ( id = '' ) {
+
+        if(this._listado[id]){
+            delete this._listado[id];   
+        }
+
+    }
+
+    cargarTareasFromArray( tareas = []) {
+        
+        tareas.forEach(tarea => {
+            this._listado[tarea.id] = tarea;
+        });
+
+        //this._listado[tarea.id] = tareas;
+
+    }
+
+    crearTarea(desc = '') {
 
         const tarea = new Tarea(desc);
         this._listado[tarea.id] = tarea;
         
+    }
+
+    listadoCompleto() {
+        
+        console.log('');
+        this.listadoArr.forEach( (tarea, index) => {
+
+            const idx = `${index+1}`.green;
+            const {descripcion, completadoEn} = tarea;
+            const estado = (completadoEn)
+                                ? 'Completada'.green
+                                : 'Pendiente'.red;
+            console.log(`${idx} ${descripcion} :: ${estado}`);
+        });
+
+    }
+
+    listarPendientesCompletadas( completadas = true) {
+
+        console.log('');
+        let contador = 0;
+        this.listadoArr.forEach( (tarea) => {
+
+            const {descripcion, completadoEn} = tarea;
+            const estado = (completadoEn)
+                                ? 'Completada'.green
+                                : 'Pendiente'.red;
+            if(completadas) {
+                //mostrar completadas
+                if(completadoEn) {
+                    contador +=1;
+                    console.log(`${(contador + '.').green} ${descripcion} :: ${estado}`);
+                }
+            }else{
+                if(!completadoEn) {
+                    contador +=1;
+                    console.log(`${(contador + '.').green} ${descripcion} :: ${estado}`);
+                }
+            }
+        });
+
     }
 
 }
