@@ -17,7 +17,7 @@ const main = async() => {
             case "1":
                 // Mostrar mensaje
                 const lugar = await leerInput('Ciudad: ');
-               await busquedas.ciudad('ciudad', lugar);
+               await busquedas.ciudad(lugar);
 
                 // Buscar los lugares
 
