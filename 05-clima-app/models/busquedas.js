@@ -25,9 +25,13 @@ class Busquedas {
             });
 
             const resp = await instance.get();
-
-            // const resp = await axios.get('https://reqres.in/api/users?page=2');
-            console.log(resp.data);
+            
+            return resp.data.features.map( lugar => ({
+                id: lugar.id,
+                nombre: lugar.place_name,
+                lng: lugar.center[0],
+                lat: lugar.center[1]
+            }));
 
         }catch(err){
 
