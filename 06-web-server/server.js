@@ -1,20 +1,19 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
+const puerto = 3000;
 
-app.use( express.static( __dirname + '/public') );
+//Servir contenido estatico
+app.use(express.static('public'));
 
-// Express HBS engine
-app.set('view engine', 'hbs');
-
-app.get('/', function (req, res) {
-    
-    res.render('home',{
-        nombre: 'Joan',
-        anio: new Date().getFullYear()
-    });
-
+app.get('/hola-mundo', (req, res) => {
+    res.send('Hola mundo en su respectiva ruta');
 });
+    
+app.get('*', (req, res) => {
+    res.send('404  | Page not found');
+});
+    
 
-app.listen(3000, () => {
-    console.log('Escuchando el peticiones en el puerto 3000')
+app.listen(puerto, () => {
+    console.log(`Aplicación corriendo en http://localhost:${puerto}`);
 });
