@@ -1,9 +1,14 @@
 const express = require('express');
+const hbs = require('hbs');
 const app = express();
 const puerto = 3000;
 
-//TODO: require('hbs');
+
+// Handlebars
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/head', (err) => {
+    throw err;
+});
 
 //Servir contenido estatico
 app.use(express.static('public'));
@@ -16,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/generic', (req, res) => {
-    res.sendFile( __dirname + '/public/generic.html');
+    res.render('generic')
 });
 
 app.get('/elements', (req, res) => {
