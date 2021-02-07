@@ -7,7 +7,7 @@ const puerto = 3000;
 // Handlebars
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/head', (err) => {
-    throw err;
+    console.log(err);
 });
 
 //Servir contenido estatico
