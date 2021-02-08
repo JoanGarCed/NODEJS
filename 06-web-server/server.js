@@ -1,7 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const hbs = require('hbs');
 const app = express();
-const puerto = 3000;
+const puerto = process.env.PORT;
 
 
 // Handlebars
