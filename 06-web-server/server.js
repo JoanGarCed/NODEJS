@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/generics', (req, res) => {
+app.get('/generic', (req, res) => {
     res.render('generic', {
         nombre: 'Joan García',
         titulo: 'Curso de Node'
