@@ -18,14 +18,20 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/generic', (req, res) => {
-    res.render('generic')
+app.get('/generics', (req, res) => {
+    res.render('generic', {
+        nombre: 'Joan García',
+        titulo: 'Curso de Node'
+    });
 });
 
 app.get('/elements', (req, res) => {
-    res.sendFile( __dirname + '/public/elements.html');
+    res.render('elements', {
+        nombre: 'Joan García',
+        titulo: 'Curso de Node'
+    });
 });
-    
+
 app.get('*', (req, res) => {
     res.sendFile( __dirname + '/public/404.html');
 });
