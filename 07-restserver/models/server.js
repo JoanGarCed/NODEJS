@@ -19,7 +19,7 @@ class Server{
         //CORS
         this.app.use(cors());
 
-        //Lecturay p arseo del body
+        //Lectura y parseo del body
         this.app.use(express.json());
 
         //Directorio Público
