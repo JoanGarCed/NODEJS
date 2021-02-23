@@ -34,4 +34,4 @@ const UsuarioSchema = Schema({
 
 
 
-//module.exports = ???
+module.exports = model('Usuario', UsuarioSchema);
